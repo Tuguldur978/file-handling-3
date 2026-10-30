@@ -46,8 +46,14 @@ def merge_files(first, second, destination):
     return total_written
 # Exercise 4
 def find_score(filename, name):
-    # Write your code here
-    pass
+        file = open(filename, "r", encoding="utf-8")
+        for line in file:
+            parts = line.strip().split(",")
+            if len(parts) == 2 and parts[0] == name:
+                file.close()
+                return int(parts[1])
+        file.close()
+        return -1
 
 # Exercise 5
 def update_score(filename, name, new_score):
