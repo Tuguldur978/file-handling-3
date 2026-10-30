@@ -30,9 +30,20 @@ def reverse_lines(source, destination):
 
 # Exercise 3
 def merge_files(first, second, destination):
-    # Write your code here
-    pass
-
+    total_written = 0
+    dst_file = open(destination, "w", encoding="utf-8")
+    first_file = open(first, "r", encoding="utf-8")
+    for line in first_file:
+        dst_file.write(line.strip() + "\n")
+        total_written += 1
+    first_file.close()
+    second_file = open(second, "r", encoding="utf-8")
+    for line in second_file:
+        dst_file.write(line.strip() + "\n")
+        total_written += 1
+    second_file.close()
+    dst_file.close()
+    return total_written
 # Exercise 4
 def find_score(filename, name):
     # Write your code here
