@@ -57,5 +57,23 @@ def find_score(filename, name):
 
 # Exercise 5
 def update_score(filename, name, new_score):
-    # Write your code here
-    pass
+def update_score(filename, name, new_score):
+    file = open(filename, "r", encoding="utf-8")
+    lines = file.readlines()
+    file.close()
+    found = False
+    updated_lines = []
+    for line in lines:
+        parts = line.strip().split(",")
+        if len(parts) == 2 and parts[0] == name:
+            updated_lines.append(f"{name},{new_score}\n")
+            found = True
+        else:
+            updated_lines.append(line)
+    if found:
+        file = open(filename, "w", encoding="utf-8")
+        for line in updated_lines:
+            file.write(line)
+        file.close()
+        return True
+    return False
