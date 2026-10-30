@@ -57,7 +57,6 @@ def find_score(filename, name):
 
 # Exercise 5
 def update_score(filename, name, new_score):
-def update_score(filename, name, new_score):
     file = open(filename, "r", encoding="utf-8")
     lines = file.readlines()
     file.close()
