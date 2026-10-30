@@ -16,8 +16,17 @@ def read_line(filename, line_number):
 
 # Exercise 2
 def reverse_lines(source, destination):
-    # Write your code here
-    pass
+    src_file = open(source, "r", encoding="utf-8")
+    lines = src_file.readlines()
+    src_file.close()
+    lines.reverse()
+    dst_file = open(destination, "w", encoding="utf-8")
+    count = 0
+    for line in lines:
+        dst_file.write(line.strip() + "\n")
+        count += 1
+    dst_file.close()
+    return count
 
 # Exercise 3
 def merge_files(first, second, destination):
