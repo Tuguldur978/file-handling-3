@@ -2,8 +2,17 @@
 # Exercise 1
 
 def read_line(filename, line_number):
-    # Write your code here
-    pass
+    if line_number <= 0:
+        return ""
+    file = open(filename, "r", encoding="utf-8")
+    line = ""
+    for _ in range(line_number):
+        line = file.readline()
+        if not line:
+            file.close()
+            return ""
+    file.close()
+    return line.removesuffix("\n").removesuffix("\r")
 
 # Exercise 2
 def reverse_lines(source, destination):
